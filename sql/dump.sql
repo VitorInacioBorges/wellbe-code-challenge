@@ -1,13 +1,13 @@
--- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.13  Distrib 8.4.11, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: wellbe_desafio
 -- ------------------------------------------------------
--- Server version	10.4.32-MariaDB
+-- Server version	8.4.11-0ubuntu0.26.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -19,7 +19,7 @@
 -- Current Database: `wellbe_desafio`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `wellbe_desafio` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `wellbe_desafio` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `wellbe_desafio`;
 
@@ -29,17 +29,17 @@ USE `wellbe_desafio`;
 
 DROP TABLE IF EXISTS `atestado`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `atestado` (
-  `id` int(11) NOT NULL,
-  `funcionario_id` int(11) NOT NULL,
-  `departamento_id` int(11) DEFAULT NULL,
-  `lider_funcionario_id` int(11) DEFAULT NULL,
+  `id` int NOT NULL,
+  `funcionario_id` int NOT NULL,
+  `departamento_id` int DEFAULT NULL,
+  `lider_funcionario_id` int DEFAULT NULL,
   `data_atestado` date NOT NULL,
   `especialidade` varchar(150) NOT NULL DEFAULT '',
   `motivo` varchar(150) NOT NULL DEFAULT '',
-  `custo_afastamento` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `custo_outlier` tinyint(1) NOT NULL DEFAULT 0,
+  `custo_afastamento` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `custo_outlier` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `funcionario_id` (`funcionario_id`),
   KEY `departamento_id` (`departamento_id`),
@@ -48,7 +48,7 @@ CREATE TABLE `atestado` (
   CONSTRAINT `atestado_ibfk_1` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionario` (`id`),
   CONSTRAINT `atestado_ibfk_2` FOREIGN KEY (`departamento_id`) REFERENCES `departamento` (`id`),
   CONSTRAINT `atestado_ibfk_3` FOREIGN KEY (`lider_funcionario_id`) REFERENCES `funcionario` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,13 +67,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `departamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `departamento` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,15 +92,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `funcionario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(150) NOT NULL,
   `identificacao` varchar(100) NOT NULL DEFAULT '',
-  `eh_lider` tinyint(1) NOT NULL DEFAULT 0,
+  `eh_lider` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-10 18:11:54
+-- Dump completed on 2026-09-10 20:05:18
