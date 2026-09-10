@@ -23,6 +23,7 @@ CREATE TABLE atestado (
     especialidade VARCHAR(150) NOT NULL DEFAULT '',
     motivo VARCHAR(150) NOT NULL DEFAULT '',
     custo_afastamento DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    custo_outlier BOOLEAN NOT NULL DEFAULT FALSE,
 
     FOREIGN KEY (funcionario_id) REFERENCES funcionario(id),
     FOREIGN KEY (departamento_id) REFERENCES departamento(id),
