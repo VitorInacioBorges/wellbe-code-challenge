@@ -1,0 +1,9 @@
+pandas>=2.2
+numpy>=1.26
+SQLAlchemy>=2.0
+PyMySQL>=1.1
+python-dotenv>=1.0
+jupyter>=1.0
+nbconvert>=7.16
+matplotlib>=3.8
+ipykernel>=6.29
