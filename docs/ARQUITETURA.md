@@ -12,7 +12,7 @@ a partir delas:
 
 | TABELAS | departamento | funcionario                            | atestado                                                                                                                     |
 | ------- | ------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| COLUNAS | id, nome      | id, nome, identificacao, eh_lider       | id, funcionario_id, departamento_id, lider_funcionario_id, data_atestado, especialidade, motivo, custo_afastamento           |
+| COLUNAS | id, nome      | id, nome, identificacao, eh_lider       | id, funcionario_id, departamento_id, lider_funcionario_id, data_atestado, especialidade, motivo, custo_afastamento, custo_outlier |
 
 Nomes de tabela em minúsculas (`departamento`, `funcionario`, `atestado`)
 para funcionar de forma consistente em qualquer servidor MySQL/MariaDB,
@@ -34,3 +34,11 @@ por ocorrência e não responde às perguntas do desafio corretamente. Ver a
 seção "Achado importante sobre a hierarquia" do spec
 (`docs/superpowers/specs/2026-09-10-wellbe-etl-design.md`) para a análise
 completa que motivou essa decisão.
+
+## Outlier de custo
+
+`custo_outlier` marca atestados cujo custo é mais de 10x a mediana dos próprios
+custos do funcionário — nunca deletados, só marcados e excluídos das perguntas de
+gasto (departamento/líder). Ver `docs/DADOS.md` para a regra completa e a
+justificativa de por que uma regra estatística global (IQR/z-score) não funciona
+nesse dataset.

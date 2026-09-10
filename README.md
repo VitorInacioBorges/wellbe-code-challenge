@@ -6,11 +6,11 @@ Ver `notebooks/etl.ipynb` para o pipeline completo.
 
 ## Respostas
 
-1. **Departamento que mais gastou em afastamentos:** `ANALISTA CONTABIL II`,
-   R$ 10.228,65 (ver a ressalva sobre um valor bruto suspeito no notebook,
-   célula anterior aos resultados das queries — sem essa linha o vencedor
-   seria `ANALISTA INFORMACOES GERENCIAIS II`).
-2. **Líder desse departamento:** `Anonimo 111`.
+1. **Departamento que mais gastou em afastamentos:** `ANALISTA INFORMACOES GERENCIAIS II`,
+   R$ 2.603,45 (um atestado com custo suspeito — R$ 9.215,00 em vez de R$ 92,15 —
+   foi identificado como outlier e excluído desta conta; ver a nota no notebook
+   e em `docs/DADOS.md` para a regra completa e os números antes/depois).
+2. **Líder desse departamento:** `Anonimo 108`.
 3. **Ocorrências por dia da semana:** não é uma resposta única — ver a
    tabela/gráfico `dia_semana.png` no notebook.
 4. **Atestados acumulados por mês:** também uma série, não um valor único —
