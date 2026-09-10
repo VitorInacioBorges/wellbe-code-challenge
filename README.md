@@ -9,7 +9,7 @@ Ver `notebooks/etl.ipynb` para o pipeline completo.
 1. **Departamento que mais gastou em afastamentos:** `ANALISTA INFORMACOES GERENCIAIS II`,
    R$ 2.603,45 (um atestado com custo suspeito — R$ 9.215,00 em vez de R$ 92,15 —
    foi identificado como outlier e excluído desta conta; ver a nota no notebook
-   e em `docs/DADOS.md` para a regra completa e os números antes/depois).
+   para os números antes/depois e `docs/DADOS.md` para a regra completa).
 2. **Líder desse departamento:** `Anonimo 108`.
 3. **Ocorrências por dia da semana:** não é uma resposta única — ver a
    tabela/gráfico `dia_semana.png` no notebook.

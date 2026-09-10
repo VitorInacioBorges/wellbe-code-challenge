@@ -52,7 +52,6 @@ Vi um erro nos dados: existem dados outliers que saem do padrão da tabela. Por 
 
 - Será tratado como String / varchar. Em caso de vazio será "".
 
-
 ### Outlier de Custo (regra formalizada)
 
 A regra usada para identificar os outliers mencionados acima: um atestado é
@@ -74,3 +73,8 @@ Validado contra os dados reais: a regra marca exatamente 1 linha (código
 O outlier é mantido na tabela `atestado` (coluna `custo_outlier`), nunca deletado.
 Só é excluído das perguntas de gasto (departamento/líder que mais gastou); nas
 perguntas de contagem de ocorrências ele continua contando normalmente.
+
+Nota: como a mediana inclui o próprio valor testado, o gatilho de fato só é
+confiável a partir de 3 atestados com custo > 0 do mesmo funcionário — com
+exatamente 2, um valor 100x maior desloca a própria mediana e pode não ser
+detectado. Não afeta o dataset atual (validado sem lacunas).
