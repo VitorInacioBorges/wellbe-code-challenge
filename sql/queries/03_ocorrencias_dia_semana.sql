@@ -11,6 +11,6 @@ SELECT
     ds.dia_nome AS dia_da_semana,
     COUNT(a.id) AS total_ocorrencias
 FROM dias_semana ds
-LEFT JOIN Atestado a ON DAYOFWEEK(a.data_atestado) = ds.dia_num
+LEFT JOIN atestado a ON DAYOFWEEK(a.data_atestado) = ds.dia_num
 GROUP BY ds.dia_num, ds.dia_nome
 ORDER BY ds.dia_num;

@@ -3,7 +3,7 @@ WITH por_mes AS (
         DATE_FORMAT(data_atestado, '%m/%y') AS mes,
         DATE_FORMAT(data_atestado, '%Y-%m') AS mes_ordenavel,
         COUNT(*) AS total_mes
-    FROM Atestado
+    FROM atestado
     GROUP BY mes, mes_ordenavel
 )
 SELECT
